@@ -3,6 +3,9 @@ name: Build iOS IPA
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: macos-latest
@@ -22,3 +25,8 @@ jobs:
         with:
           name: GymLog-unsigned-ipa
           path: GymLog-unsigned.ipa
+      - name: Publish IPA release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create gym-log-v0.1.0 GymLog-unsigned.ipa --title "GymLog v0.1.0" --notes "Unsigned IPA build for sideloading."
