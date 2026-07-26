@@ -1,0 +1,20 @@
+name: GymLog
+options:
+  bundleIdPrefix: com.nghia
+  deploymentTarget:
+    iOS: "17.0"
+settings:
+  base:
+    PRODUCT_BUNDLE_IDENTIFIER: com.nghia.gymlog
+    SWIFT_VERSION: "5.0"
+targets:
+  GymLog:
+    type: application
+    platform: iOS
+    sources:
+      - GymLog
+    settings:
+      base:
+        INFOPLIST_KEY_CFBundleDisplayName: GymLog
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.healthcare-fitness
+        GENERATE_INFOPLIST_FILE: YES
